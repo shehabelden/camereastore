@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "187855862988",
+    "project_id": "camerastore-86084",
+    "storage_bucket": "camerastore-86084.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187855862988:android:edc96d7e72532623131669",
+        "android_client_info": {
+          "package_name": "com.example.camerastore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_KNSGCrfEQnvdfOTyUEzjLg0mKohvyMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
