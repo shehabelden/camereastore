@@ -1,7 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../utils/lists/category_list.dart';
+import '../../../utils/seq/Cashe.dart';
+import '../../../utils/seq/cashed_vareboal.dart';
+import '../model/model.dart';
 import 'state.dart';
 
 class HomeCubit extends Cubit<MainHomeState> {
@@ -12,15 +17,68 @@ class HomeCubit extends Cubit<MainHomeState> {
   int slideIndex = 0;
   List categoryList=[];
   List categoryIdList=[];
+  int cont=0;
+  String CategoryFilt=CategoryLists.cameraLangItems[0];
   Map <String,dynamic>productData={};
-  void slideManger(index){
+  bool isEnglish = CachedVariables.lang == "en" ? true : false;  void slideManger(index){
     slideIndex = index;
     emit(SlideMangerState());
+  }
+  void categoryFiltter(index){
+    CategoryFilt = index;
+    emit(CategoryFiltterState());
+  }
+
+  void changeLanguageState(value) {
+    isEnglish = value;
+    emit(ChangeLanguageSuccessState());
   }
   void bottomBarCubit(i) {
     index = i;
     // print(index);
     emit(CustomBottomBarState());
+  }
+  void appLanguage(LanguageEventEnums eventType) async {
+    try {
+      switch (eventType) {
+        case LanguageEventEnums.initiallanguage:
+        // Try to get the language from shared preferences
+          String? language = Cachehelper.getData(key: 'language');
+          if (language != null) {
+            emit(ChangeLanguage(languageCode: language)); // Emit the saved language
+          } else {
+            emit(ChangeLanguage(languageCode: 'en')); // Default to English if no language is saved
+          }
+          break;
+
+        case LanguageEventEnums.arabiclanguage:
+          await Cachehelper.saveData(key: 'language', value: 'ar');
+          emit(ChangeLanguage(languageCode: 'ar'));
+          break;
+
+        case LanguageEventEnums.spanishlanguage:
+          await Cachehelper.saveData(key: 'language', value: 'es');
+          emit(ChangeLanguage(languageCode: 'es'));
+          break;
+
+        case LanguageEventEnums.russianlanguage:
+          await Cachehelper.saveData(key: 'language', value: 'ru');
+          emit(ChangeLanguage(languageCode: 'ru'));
+          break;
+
+        case LanguageEventEnums.englishlanguage:
+          await Cachehelper.saveData(key: 'language', value: 'en');
+          emit(ChangeLanguage(languageCode: 'en'));
+          break;
+
+        default:
+          break;
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error in appLanguage: $e");
+      }
+    }
   }
 
    topBarCubit(int i) {
@@ -63,6 +121,19 @@ class HomeCubit extends Cubit<MainHomeState> {
   addProductCartData(map) async{
     await FirebaseFirestore.instance.collection("Profile").doc(FirebaseAuth.instance.currentUser!.uid).collection("Cart").add(map);
     emit(AddProductCart());
+  }
+plas(){
+  if(cont<7){
+    cont=cont+1;
+  }
+  print(cont);
+  emit(PlasState());
+}
+  minas(){
+    if(cont>0){
+      cont--;
+    }
+    emit(MinasState());
   }
 
 }

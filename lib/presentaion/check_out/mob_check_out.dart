@@ -6,7 +6,6 @@ import '../cart_padge/cubit/cubit.dart';
 import '../cart_padge/cubit/state.dart';
 import '../home_badge/widget/footer.dart';
 import '../home_badge/widget/search_field.dart';
-import 'widget/check_out_container.dart';
 class ScreenCheckOutMobile extends StatelessWidget {
   const ScreenCheckOutMobile({super.key, required this.shapingId});
   final String shapingId;
@@ -49,7 +48,6 @@ class ScreenCheckOutMobile extends StatelessWidget {
                             children: [
                               SizedBox(height: height*.0821917808219178,),
                               TextFormField(
-
                                 controller: Controllers.firstNameController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -69,7 +67,6 @@ class ScreenCheckOutMobile extends StatelessWidget {
                               SizedBox(height: height*.0821917808219178,),
                               TextFormField(
                                 controller: Controllers.lastNameController,
-
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Please enter your Last Name';

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../utils/lists/category_list.dart';
+import '../cubit/cubit.dart';
 class DropDownCategory extends StatelessWidget {
-  const DropDownCategory({super.key});
+  const DropDownCategory({super.key, required this.cubit});
+  final HomeCubit cubit;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,16 +20,19 @@ class DropDownCategory extends StatelessWidget {
         ),
         hint:const Text('Select an option',style: TextStyle(
         ),),
-        value: CategoryLists.cameraItems[0],
+        value: cubit.CategoryFilt,
         // Dropdown items
-        items: CategoryLists.cameraItems.map((String item) {
+        items: CategoryLists.cameraLangItems.map((String item) {
           return DropdownMenuItem<String>(
             value: item,
             child: Text(item),
           );
         }).toList(),
         // When the user selects an item
-        onChanged: (String? newValue) {
+        onChanged: (String? newValue){
+          cubit.categoryFiltter(newValue!);
+          cubit.topBarCubit(CategoryLists.cameraItems.indexOf(newValue));
+          cubit.getData(CategoryLists.subCategoryList[0]["Photography cameras"]![CategoryLists.cameraItems.indexOf(newValue)].toString(),CategoryLists.cameraId[CategoryLists.cameraItems.indexOf(newValue)].toString());
         },
       ),
     );

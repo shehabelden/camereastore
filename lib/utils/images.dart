@@ -1,5 +1,5 @@
 class Images {
-  static String mainPath="images";
+  static String mainPath="assets/images";
   static   String logo="$mainPath/بروفايل سوشيال شكل 2.png";
   static   String cameraLogo="$mainPath/cameraLogo.jpg";
   static   String securityCameraLogo="$mainPath/security cameras logo.jpg";

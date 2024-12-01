@@ -44,7 +44,18 @@ class CheckOutContainer extends StatelessWidget {
               child: InkWell(
                 onTap: (){
                   cubit.updateOrder(userData,shapingId);
-                },
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: const Text('order is done'),
+                        action: SnackBarAction(
+                          label: '',
+                          onPressed: () {
+                            // Code to execute.
+                          },
+                        ),
+                      ),);
+
+                  },
                 child: Container(
                   height: 50,
                   width: 300,

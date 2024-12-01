@@ -15,8 +15,7 @@ class Header extends StatelessWidget {
         builder: (context, constraints) {
         return Container(
           width: width*.4,
-          height:constraints.maxWidth <= 1200? 300: height*.2465753424657534,
-
+          height:constraints.maxWidth <= 600? 300: height*.2465753424657534,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,7 +35,7 @@ class Header extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
-                child:constraints.maxWidth <= 1200? Column(
+                child:constraints.maxWidth <= 600? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
@@ -55,7 +54,7 @@ class Header extends StatelessWidget {
                           EdgeInsets.only(left: 20, top: 10, bottom: 10),
                           child: Row(
                             children: [
-                              Image.asset("images/google 1.png"),
+                              Image.asset("assets/images/google 1.png"),
                               SizedBox(
                                 width: 10,
                               ),
@@ -76,7 +75,7 @@ class Header extends StatelessWidget {
                         EdgeInsets.only(left: 20, top: 10, bottom: 10),
                         child: Row(
                           children: [
-                            Image.asset("images/facebook1.png"),
+                            Image.asset("assets/images/facebook1.png"),
                             SizedBox(
                               width: 10,
                             ),
@@ -102,7 +101,7 @@ class Header extends StatelessWidget {
                           EdgeInsets.only(left: 20, top: 10, bottom: 10),
                           child: Row(
                             children: [
-                              Image.asset("images/google 1.png"),
+                              Image.asset("assets/images/google 1.png"),
                               SizedBox(
                                 width: 10,
                               ),
@@ -125,7 +124,7 @@ class Header extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8)),
                         child: Row(
                           children: [
-                            Image.asset("images/facebook1.png"),
+                            Image.asset("assets/images/facebook1.png"),
                             SizedBox(
                               width: 10,
                             ),

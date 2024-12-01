@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'search_field.dart';
 class Footer extends StatelessWidget {
@@ -89,18 +90,37 @@ class Footer extends StatelessWidget {
                         width: 100,
                         child: Row(
                           children: [
-                            InkWell(onTap: (){}, child: Icon(FontAwesomeIcons.instagram,size: 18,)),
+                            InkWell(onTap: ()async{
+                              await launchUrl(Uri.parse(
+                                  'https://www.instagram.com/lord.technology98/?fbclid=IwY2xjawG5IpdleHRuA2FlbQIxMAABHaKjgkuvJveGhVIOqK_3bzIBngHwfkSsWIciHbvaBoAr0R21bnhA915Dzw_aem_zdM6L3QYbHVidS8ipOGU7w#'));
+
+                            }, child: Icon(FontAwesomeIcons.instagram,size: 18,)),
                             SizedBox(width: 10,),
-                            InkWell(onTap: (){}, child: Icon(FontAwesomeIcons.facebook,size: 18,)),
+                            InkWell(onTap: ()async{
+                              await launchUrl(Uri.parse(
+                                  'https://www.facebook.com/profile.php?id=61562961732993'));
+
+                            }, child: Icon(FontAwesomeIcons.facebook,size: 18,)),
                             SizedBox(width: 10,),
-                            InkWell(onTap: (){}, child: Icon(FontAwesomeIcons.tiktok,size: 18,)),
+                            InkWell(onTap: ()async{
+                              await launchUrl(Uri.parse("https://www.tiktok.com/@lordtechnology98?fbclid=IwY2xjawG5I0tleHRuA2FlbQIxMAABHQcQ6_cBbny0ulvz2vhaUENdY05l1lzlBrpx0fUoL6hkWgSMxwXAfYb3GA_aem_DmYNd5Fe-tNQv0tqHkxAnA"));
+                              }, child: Icon(FontAwesomeIcons.tiktok,size: 18,)),
                           ],
                         ),
                       ):Row(
                     children: [
-                      IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.instagram,size: 12,)),
-                      IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.facebook,size: 12,)),
-                      IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.tiktok,size: 12,)),
+                      IconButton(onPressed: ()async{
+                        await launchUrl(Uri.parse(
+                            'https://www.instagram.com/lord.technology98/?fbclid=IwY2xjawG5IpdleHRuA2FlbQIxMAABHaKjgkuvJveGhVIOqK_3bzIBngHwfkSsWIciHbvaBoAr0R21bnhA915Dzw_aem_zdM6L3QYbHVidS8ipOGU7w#'));
+
+                      }, icon:const Icon(FontAwesomeIcons.instagram,size: 12,)),
+                      IconButton(onPressed: ()async{
+                        await launchUrl(Uri.parse(
+                            'https://www.facebook.com/profile.php?id=61562961732993'));
+                      }, icon:const Icon(FontAwesomeIcons.facebook,size: 12,)),
+                      IconButton(onPressed: ()async{
+                        await launchUrl(Uri.parse("https://www.tiktok.com/@lordtechnology98?fbclid=IwY2xjawG5I0tleHRuA2FlbQIxMAABHQcQ6_cBbny0ulvz2vhaUENdY05l1lzlBrpx0fUoL6hkWgSMxwXAfYb3GA_aem_DmYNd5Fe-tNQv0tqHkxAnA"));
+                      }, icon:const Icon(FontAwesomeIcons.tiktok,size: 12,)),
                     ],
                   ),
                 ],),),

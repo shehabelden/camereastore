@@ -6,7 +6,6 @@ import 'package:camerastore/presentaion/auth/widget/passfield.dart';
 import 'package:camerastore/utils/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'cubit/cubit.dart';
 import 'cubit/state.dart';
 class LoginScreen extends StatelessWidget {
@@ -28,7 +27,7 @@ class LoginScreen extends StatelessWidget {
             return Scaffold(
               appBar: AppBar(
                 title: Image.asset(
-                  "images/بروفايل سوشيال شكل 2.png",
+                  "assets/images/بروفايل سوشيال شكل 2.png",
                   height: 120,
                   width: 120,
                 ),
@@ -48,55 +47,58 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
               backgroundColor: Colors.white,
-              body: Padding(
-                padding:  EdgeInsets.only(left:constraints.maxWidth <= 1200? 100: 500),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 100.0),
-                      child: const Header(),
-                    ),
-                     Padding(
-                      padding:  EdgeInsets.only(right: 100.0,top:constraints.maxWidth <= 1200? 48:0 ),
-                      child:  Text("Or continue with"),
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 100.0),
-                      child: Form(
-                        key: _LoginformKey,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                          SizedBox(
-                            width:constraints.maxWidth <= 1200? 600:width*.2533333333333333 ,
-                            child: EmailField(controller: Controllers.emailController,e:cubit.emailExption),
-
-                          ),
-                          const SizedBox(height: 64,),
-                          SizedBox(
-                              width:constraints.maxWidth <= 1200? 600: width*.2533333333333333,
-                              child: PasswordField(controller: Controllers.passwordController,)
-                          ),
-                        ],),
+              body: SingleChildScrollView(
+                child: Padding(
+                  padding:  EdgeInsets.only(left:constraints.maxWidth <= 1200? 100: 500),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 100.0),
+                        child: const Header(),
                       ),
-                    ),
-                    const SizedBox(height: 64,),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 100.0),
-                      child: InkWell(
-                          onTap: (){
-                            if (_LoginformKey.currentState!.validate()) {
-                              cubit.SignInWithEamilandPass(Controllers.emailController.text,Controllers.passwordController.text);
-                            }
-                          },
-                          child: AuthButton()),
-                    )
-                  ],
+                       Padding(
+                        padding:  EdgeInsets.only(right: 100.0,top:constraints.maxWidth <= 600? 48:0 ),
+                        child:  Text("Or continue with"),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Padding(
+                        padding:  EdgeInsets.only(right: 100.0,bottom:constraints.maxWidth <=600? 200: 00),
+                        child: Form(
+                          key: _LoginformKey,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                            SizedBox(
+                              width:constraints.maxWidth <= 1200? 600:width*.2533333333333333 ,
+                              child: EmailField(controller: Controllers.emailController,e:cubit.emailExption),
+
+                            ),
+                            const SizedBox(height: 64,),
+                            SizedBox(
+                                width:constraints.maxWidth <= 1200? 600: width*.2533333333333333,
+                                child: PasswordField(controller: Controllers.passwordController,)
+                            ),
+                          ],),
+                        ),
+                      ),
+                      const SizedBox(height: 64,),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 100.0),
+                        child: InkWell(
+                            onTap: ()async{
+                              if (_LoginformKey.currentState!.validate()) {
+                             await   cubit.SignInWithEamilandPass(Controllers.emailController.text,Controllers.passwordController.text);
+                                context.beamToNamed('/');
+                              }
+                            },
+                            child:const AuthButton()),
+                      )
+                    ],
+                  ),
                 ),
               ),
             );

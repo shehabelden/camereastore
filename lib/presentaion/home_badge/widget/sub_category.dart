@@ -30,7 +30,7 @@ class SubCategory extends StatelessWidget {
                         height: height*.0547945205479452,
                         alignment: Alignment.center,
                         padding:const EdgeInsets.only(left: 10.0,right: 10) ,
-                        child: Text(CategoryLists.subCategoryList[0]["Photography cameras"]![i],style: TextStyle(
+                        child: Text(CategoryLists.cameraLangItems[i],style: TextStyle(
                           color: Colors.black
                         ),),
                       ),

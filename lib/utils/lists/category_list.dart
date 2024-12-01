@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 class CategoryLists {
   List mainCategoryList = [
     "Photography cameras",
@@ -21,6 +23,22 @@ class CategoryLists {
     'Cables',//12
     'Memory cards and flash drives',//13
   ];
+  static final List<String> cameraLangItems = [
+    'cameras_new'.tr(), // 1
+    'cameras_used'.tr(), // 2
+    'lenses_new'.tr(), // 3
+    'lenses_used'.tr(), // 4
+    'lighting_equipment'.tr(), // 5
+    'chargers_batteries'.tr(), // 6
+    'straps'.tr(), // 7
+    'camera_bags'.tr(), // 8
+    'filters_hoods_lens_caps'.tr(), // 9
+    'cases'.tr(), // 10
+    'screen_protectors'.tr(), // 11
+    'cables'.tr(), // 12
+    'memory_cards_flash_drives'.tr(), // 13
+  ];
+
   static final List<String> cameraId=[
     "JkqUHTmIy7m0VCVCFzeZ",//1
     "3WPsTRRDJ3d465Fdgb0q",//2

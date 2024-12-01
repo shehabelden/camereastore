@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../../utils/lists/category_list.dart';
-
 class MainHeader extends StatelessWidget {
   const MainHeader({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -37,7 +34,6 @@ class MainHeader extends StatelessWidget {
               ),
             )),
         Expanded(flex: 1, child: SizedBox()),
-
       ],
     );
   }

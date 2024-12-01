@@ -25,10 +25,10 @@ class Body extends StatelessWidget {
                     SizedBox(height: 20,),
                     GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount:constraints.maxWidth <= 1200? 2:4,
-                            crossAxisSpacing:constraints.maxWidth <= 1200? 20:120,
+                            crossAxisCount:constraints.maxWidth <= 600? 2:4,
+                            crossAxisSpacing:constraints.maxWidth <= 600? 20:120,
                             mainAxisSpacing: 30,
-                          mainAxisExtent:constraints.maxWidth <= 1200?310:410,
+                          mainAxisExtent:constraints.maxWidth <= 600?310:410,
                         ),
                         shrinkWrap: true,
                         itemCount: 8, // Number of items in the grid
